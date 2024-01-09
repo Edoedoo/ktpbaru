@@ -94,7 +94,7 @@ h4, h5, h6 {
     align-items: center;
 }
 .content:hover .top {
-    color: white;
+    color: rgb(139, 139, 139);
 }
 .top h4 {
     position: relative;
@@ -111,7 +111,7 @@ h4, h5, h6 {
     display: flex;
 }
 .content:hover .left {
-    color: white;
+    color: rgb(139, 139, 139);
 }
 .content-left {
     position: relative;
@@ -313,5 +313,142 @@ h4, h5, h6 {
     }
     100% {
         opacity: 1;
+    }
+}
+@keyframes slideleft {
+    0% {
+        left: -14rem;
+    }
+    50% {
+        left: 5rem;
+    }
+    60% {
+        left: 15rem;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@media (max-width: 889px) {
+    body {
+        font-size: 2.5rem;
+    }
+    .content {
+        width: 600px;
+        height: 370px;
+    }
+    :root {
+        --right-height : 235px;
+        --right-width : calc(var(--right-height)/1.5);
+    }
+    .content-right {
+        width: var(--right-width);
+        height: var(--right-height);
+    }
+   
+}
+@media (max-width: 623px) {
+    body {
+        font-size: 2rem;
+    }
+    .content {
+        width: 500px;
+        height: 290px;
+    }
+    :root {
+        --right-height : 180px;
+        --right-width : calc(var(--right-height)/1.5);
+    }
+    .content-right {
+        width: var(--right-width);
+        height: var(--right-height);
+    }
+    .lightning-efek {
+        left: 5rem;
+        bottom: -2rem;
+    }
+}
+@media (max-width: 526px) {
+    body {
+        font-size: 1.6rem;
+    }
+    .content-left {
+        margin-right: .5rem;
+    }
+    .content {
+        padding: .2rem;
+        width: 400px;
+        height: 240px;
+    }
+    :root {
+        --right-height : 150px;
+        --right-width : calc(var(--right-height)/1.5);
+    }
+    .content-right {
+        width: var(--right-width);
+        height: var(--right-height);
+    }
+}
+@media (max-width: 418px) {
+    body {
+        font-size: 1.5rem;
+    }
+    .content-left {
+        margin-right: .2rem;
+    }
+    .left {
+        padding: .1rem;
+    }
+    #slide {
+        padding-left: 1.2rem;
+    }
+    .content {
+        padding: 0;
+        width: 300px;
+        height: 190px;
+    }
+    .lightning-efek {
+        left: 2rem;
+        bottom: 0rem;
+    }
+    :root {
+        --right-height : 100px;
+        --right-width : calc(var(--right-height)/1.5);
+    }
+    .content-right {
+        width: var(--right-width);
+        height: var(--right-height);
+    }
+}
+@media (max-width: 320px) {
+    body {
+        font-size: 1.3rem;
+    }
+    .content-left {
+        margin-right: 0;
+    }
+    .left {
+        padding: .1rem;
+    }
+    #slide {
+        padding-left: 1rem;
+    }
+    .content {
+        padding: 0;
+        width: 220px;
+        height: 170px;
+    }
+    :root {
+        --right-height : 80px;
+        --right-width : calc(var(--right-height)/1.5);
+    }
+    .content-right {
+        width: var(--right-width);
+        height: var(--right-height);
+    }
+    .lightning-efek {
+        left: -5rem;
+        bottom: 2rem;
     }
 }
