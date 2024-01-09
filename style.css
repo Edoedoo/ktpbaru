@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+body {
+    font-size: 3rem;
+    min-height: 100vh;
+}
+span {
+    filter: blur(3px);
+}
+h4, h5, h6 {
+    padding: 0;
+    margin: 1px;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+}
+.container {
+    height: 100vh;
+    background-color: rgb(59, 59, 59);
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    cursor: pointer;
+    position: relative;
+    font-size: 50%;
+    width: 700px;
+    padding: 1rem;
+    height: 400px;
+    border-radius: 10px;
+    display: grid;
+    background: url(bground.jpg);
+    background-size: cover;
+    border: 2px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    grid-template-areas:    "top top"
+                            "left right"
+                            "bottom bottom";
+    grid-template-columns: 1fr .6fr;
+    grid-template-rows: .2fr auto .2fr;
+    overflow: hidden;
+}
+.bg {
+    position: absolute;
+    display: flex;
+    width: 700px;
+    height: 400px;
+}
+.bg-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.lightning-bg {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: -5rem;
+    left: -3rem;
+    opacity: 0;
+    z-index: 3;
+    transform: rotate(15deg);
+}
+.lightning-efek {
+    position: absolute;
+    bottom: -14rem;
+    left: 14rem;
+    transform: rotate(-15deg);
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    opacity: 0;
+}
+.content:hover .bg-cover  {
+    opacity: 0;
+    transition: all 0.5s;
+}
+.content:hover .lightning-bg {
+    opacity: 1;
+    animation: Bglightining 2.5s linear infinite;
+    transition: all 0.5s;
+}
+.content:hover .lightning-efek {
+    opacity: 1;
+    animation: lightining 2s linear infinite;
+    transition: all 0.5s;
+}
+.top {
+    grid-area: top;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.content:hover .top {
+    color: white;
+}
+.top h4 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left {
+    grid-area: left;
+    position: relative;
+    justify-content: left;
+    padding: 0 1rem;
+    align-items: center;
+    display: flex;
+}
+.content:hover .left {
+    color: white;
+}
+.content-left {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-right: 2rem;
+}
+.content-left h6 {
+    font-family: sans-serif;
+}
+.content-left-fill h6 {
+    font-family: sans-serif;
+}
+#slide {
+   padding-left: 4rem;
+}
+.right {
+    grid-area: right;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 3;
+}
+.content-right h6 {
+    position: relative;
+    justify-content: center;
+}
+.bottom {
+    grid-area: bottom;
+    position: relative;
+    justify-content: right;
+    padding-right: 6rem;
+    align-items: center;
+    display: flex;
+    opacity: 0;
+}
+
+
+/* animasi */
+:root {
+    --right-height : 250px;
+    --right-width : calc(var(--right-height)/1.5);
+}
+.content-right {
+    width: var(--right-width);
+    height: var(--right-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    perspective: 2500px;
+    cursor: pointer;
+}
+.cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+.wrapper {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+.wrapper::before,
+.wrapper::after {
+    content: '';
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+}
+.wrapper::before {
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgb(12,13,19,0.5) 68%, rgb(12,13,19) 100%);
+}
+.wrapper::after {
+    bottom: 0;
+    opacity: 1;
+    /* background-image: linear-gradient(to top,transparent 46%, rgb(12,13,19,0.5) 68%, rgb(12,13,19) 97%); */
+}
+.title {
+    width: 100%;
+    transition: transform 0.5s;
+    opacity: 0;
+}
+.character {
+    width: 140%;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all 0.5s;
+}
+.content:hover .wrapper {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 0px 35px 32px -8px rgb(0, 0, 0,0.75);
+}
+.content:hover .wrapper::after,
+.wrapper::before {
+    opacity: 0;
+}
+.content:hover .wrapper::after {
+    height: 12px;
+}
+.content:hover .wrapper::before {
+    opacity: 1;
+}
+.content:hover .character {
+    opacity: 1;
+    transform: translate3d(20% , -5%, -50px);
+    animation: scale 10s linear infinite;
+    animation-delay: 1s;
+}
+.content:hover .cover {
+    opacity: 0;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(100%);
+        transform: translate3d(20% , -5%, -50px);
+    }
+    25% {
+        transform: scale(115%);
+    }
+    50% {
+        transform: scale(100%);
+        transform: translate3d(10% , -10%, -100px);
+    }
+    75% {
+        transform: scale(105%);
+    }
+    100% {
+        transform: scale(100%);
+        transform: translate3d(20% , -5%, -50px);
+    }
+}
+@keyframes lightining {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    21% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    31% {
+        opacity: 1;
+    }
+    35% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes Bglightining {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    21% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 0;
+    }
+    36% {
+        opacity: 1;
+    }
+    38% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    51% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
