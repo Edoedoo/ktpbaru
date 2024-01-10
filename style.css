@@ -428,6 +428,9 @@ h4, h5, h6 {
     .content-left {
         margin-right: 0;
     }
+    .content-left-fill {
+        font-size : 102%;
+    }
     .left {
         padding: .1rem;
     }
